@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="StomperProject/StomperProject.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="StomperProject/Scripts/FNAGame.cs">
+    <Files>
+      <File FileName="StomperProject/Engine/Renderer/Components/Sprite.cs" Line="19" Column="3" />
+      <File FileName="StomperProject/Engine/IGameEvent.cs" Line="1" Column="1" />
+      <File FileName="StomperProject/Engine/Entity.cs" Line="1" Column="1" />
+      <File FileName="StomperProject/Scripts/FNAGame.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

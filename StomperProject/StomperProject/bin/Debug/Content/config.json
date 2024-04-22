@@ -1,0 +1,70 @@
+﻿{
+  "$type": "Stomper.Scripts.Config, StomperProject",
+  "RandomSeed": 4269,
+  "DefaultClearColour": "100,149,237,255", // CornflowerBlue
+  "Gravity": 45,
+  "JumpAcceleration": 30, // original 1.37,
+  "WalkSpeed": 1,
+  "DebugLineWidth": 2,
+  "Keybindings": {
+    "Space": "JUMP",
+    "A": "MOVE_LEFT",
+    "D": "MOVE_RIGHT",
+    "RightControl": "ATTACK",
+
+    "P": "SPAWN"
+  },
+  "GamepadBindings": {
+    "A": "JUMP",
+    "DPAD_LEFT": "MOVE_LEFT",
+    "DPAD_RIGHT": "MOVE_RIGHT",
+    "B": "ATTACK",
+
+    "SELECT": "SPAWN"
+  },
+  "Spawns": [
+    "640, 128",
+    "1280, 128"
+  ],
+  "PlayerTemplate": {
+    "$type": "Stomper.Engine.Entity, StomperProject",
+    "Name": "Player1",
+    "Components": {
+      "$type": "System.Collections.Generic.List`1[[Stomper.Engine.IECSComponent, StomperProject]], mscorlib",
+      "$values": [
+        {
+          "$type": "Stomper.Engine.Renderer.Sprite, StomperProject",
+          "TexturePath": "char",
+          "Texture": null
+        },
+        {
+          "$type": "Stomper.Engine.Position, StomperProject",
+          "position": "640, 128"
+        },
+        {
+          "$type": "Stomper.Engine.Physics.Mass, StomperProject",
+          "Amount": 100.0,
+          "Acceleration": "0, 0"
+        },
+        {
+          "$type": "Stomper.Engine.Renderer.CustomSpriteSize, StomperProject",
+          "Width": 50,
+          "Height": 50
+        },
+        {
+          "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+          "Offset": "0, 0",
+          "Size": "50, 50"
+        },
+        {
+          "$type": "Stomper.Scripts.Components.WalkSpeed, StomperProject",
+          "Value": 0.5
+        },
+        {
+          "$type": "Stomper.Engine.PlayerTag, StomperProject",
+          "Value": -1
+        }
+      ]
+    }
+  }
+}

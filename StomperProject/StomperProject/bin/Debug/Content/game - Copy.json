@@ -1,0 +1,355 @@
+﻿[
+  {
+    "$type": "Stomper.Engine.Entity, StomperProject",
+    "Name": "Player1",
+    "Components": {
+      "$type": "System.Collections.Generic.List`1[[Stomper.Engine.IECSComponent, StomperProject]], mscorlib",
+      "$values": [
+        {
+          "$type": "Stomper.Engine.Renderer.Sprite, StomperProject",
+          "TexturePath": "char",
+          "Texture": null
+        },
+        {
+          "$type": "Stomper.Engine.Position, StomperProject",
+          "position": "640, 128"
+        },
+        {
+          "$type": "Stomper.Engine.Physics.Mass, StomperProject",
+          "Amount": 100.0,
+          "Acceleration": "0, 0"
+        },
+        {
+          "$type": "Stomper.Engine.Renderer.CustomSpriteSize, StomperProject",
+          "Width": 50,
+          "Height": 50
+        },
+        {
+          "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+          "Offset": "0, 0",
+          "Size": "50, 50"
+        },
+        {
+          "$type": "Stomper.Scripts.Components.WalkSpeed, StomperProject",
+          "Value": 0.5
+        }
+      ]
+    },
+    "Systems": {
+      "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+      "$values": [
+        // Physics
+        "Collisions",
+        "Gravity",
+        "CollisionResolve",
+
+        // Rendering
+        "SpriteLoader",
+        "SpriteCustomSizeRenderer",
+        //"ColouredLine",
+        "ColouredLineRenderer",
+
+        // Game Logic
+        "DebugBoxColliderUpdatePosition",
+        "Jump",
+        "Walk"
+      ]
+    }
+  },
+
+    {
+      "$type": "Stomper.Engine.Entity, StomperProject",
+      "Name": "Platform0",
+      "Components": {
+        "$type": "System.Collections.Generic.List`1[[Stomper.Engine.IECSComponent, StomperProject]], mscorlib",
+        "$values": [
+            {
+                "$type": "Stomper.Engine.Renderer.Sprite, StomperProject",
+                "TexturePath": "wall",
+                "Texture": null
+            },
+            {
+                "$type": "Stomper.Engine.Position, StomperProject",
+                "position": "0, 1060"
+            },
+            {
+                "$type": "Stomper.Engine.Renderer.CustomSpriteSize, StomperProject",
+                "Width": 1920,
+                "Height": 20
+            },
+            {
+                "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+                "Offset": "0, 0",
+                "Size": "1920, 20"
+            },
+            {
+                "$type": "Stomper.Engine.Physics.Static, StomperProject"
+            },
+            {
+                "$type": "Stomper.Engine.Renderer.SpriteTiling, StomperProject",
+                "HorizontalTiling": 64,
+                "VerticalTiling": 1
+            }
+        ]
+      },
+      "Systems": {
+        "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+        "$values": [
+                // Physics
+                "Collisions",
+                //"ResolveImmovable",
+
+                // Rendering
+                "SpriteLoader",
+                "SpriteTiledRenderer",
+                "ColouredLineRenderer",
+                "DebugBoxColliderUpdatePosition"
+
+        ]
+      }
+    },
+
+    // Platforms
+    {
+      "$type": "Stomper.Engine.Entity, StomperProject",
+      "Name": "Platform1",
+      "Components": {
+        "$type": "System.Collections.Generic.List`1[[Stomper.Engine.IECSComponent, StomperProject]], mscorlib",
+        "$values": [
+          {
+            "$type": "Stomper.Engine.Renderer.Sprite, StomperProject",
+            "TexturePath": "wall",
+            "Texture": null
+          },
+          {
+            "$type": "Stomper.Engine.Position, StomperProject",
+            "position": "0, 270"
+          },
+          {
+            "$type": "Stomper.Engine.Renderer.CustomSpriteSize, StomperProject",
+            "Width": 480,
+            "Height": 30
+          },
+          {
+            "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+            "Offset": "0, 0",
+            "Size": "480, 30"
+          },
+          {
+            "$type": "Stomper.Engine.Physics.Static, StomperProject"
+          },
+            {
+                "$type": "Stomper.Engine.Renderer.SpriteTiling, StomperProject",
+                "HorizontalTiling": 32,
+                "VerticalTiling": 1
+            }
+        ]
+      },
+      "Systems": {
+        "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+        "$values": [
+                // Physics
+                "Collisions",
+
+                // Rendering
+                "SpriteLoader",
+                "SpriteTiledRenderer",
+                "ColouredLineRenderer",
+                "DebugBoxColliderUpdatePosition"
+        ]
+      }
+    },
+    {
+      "$type": "Stomper.Engine.Entity, StomperProject",
+      "Name": "Platform2",
+      "Components": {
+        "$type": "System.Collections.Generic.List`1[[Stomper.Engine.IECSComponent, StomperProject]], mscorlib",
+        "$values": [
+          {
+            "$type": "Stomper.Engine.Renderer.Sprite, StomperProject",
+            "TexturePath": "wall",
+            "Texture": null
+          },
+          {
+            "$type": "Stomper.Engine.Position, StomperProject",
+            "position": "0, 270"
+          },
+          {
+            "$type": "Stomper.Engine.Renderer.CustomSpriteSize, StomperProject",
+            "Width": 480,
+            "Height": 30
+          },
+          {
+            "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+            "Offset": "0, 0",
+            "Size": "480, 30"
+          },
+          {
+            "$type": "Stomper.Engine.Physics.Static, StomperProject"
+          },
+            {
+                "$type": "Stomper.Engine.Renderer.SpriteTiling, StomperProject",
+                "HorizontalTiling": 32,
+                "VerticalTiling": 1
+            }
+        ]
+      },
+      "Systems": {
+        "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+        "$values": [
+                // Physics
+                "Collisions",
+
+                // Rendering
+                "SpriteLoader",
+                "SpriteTiledRenderer",
+                "ColouredLineRenderer",
+                "DebugBoxColliderUpdatePosition"
+        ]
+      }
+    },
+    {
+      "$type": "Stomper.Engine.Entity, StomperProject",
+      "Name": "Platform3",
+      "Components": {
+        "$type": "System.Collections.Generic.List`1[[Stomper.Engine.IECSComponent, StomperProject]], mscorlib",
+        "$values": [
+          {
+            "$type": "Stomper.Engine.Renderer.Sprite, StomperProject",
+            "TexturePath": "wall",
+            "Texture": null
+          },
+          {
+            "$type": "Stomper.Engine.Position, StomperProject",
+            "position": "360, 540"
+          },
+          {
+            "$type": "Stomper.Engine.Renderer.CustomSpriteSize, StomperProject",
+            "Width": 360,
+            "Height": 30
+          },
+          {
+            "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+            "Offset": "0, 0",
+            "Size": "360, 30"
+          },
+          {
+            "$type": "Stomper.Engine.Physics.Static, StomperProject"
+          },
+            {
+                "$type": "Stomper.Engine.Renderer.SpriteTiling, StomperProject",
+                "HorizontalTiling": 32,
+                "VerticalTiling": 1
+            }
+        ]
+      },
+      "Systems": {
+        "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+        "$values": [
+                // Physics
+                "Collisions",
+                // Rendering
+                "SpriteLoader",
+                "SpriteTiledRenderer",
+                "ColouredLineRenderer",
+                "DebugBoxColliderUpdatePosition"
+        ]
+      }
+    },
+    {
+      "$type": "Stomper.Engine.Entity, StomperProject",
+      "Name": "Platform3",
+      "Components": {
+        "$type": "System.Collections.Generic.List`1[[Stomper.Engine.IECSComponent, StomperProject]], mscorlib",
+        "$values": [
+          {
+            "$type": "Stomper.Engine.Renderer.Sprite, StomperProject",
+            "TexturePath": "wall",
+            "Texture": null
+          },
+          {
+            "$type": "Stomper.Engine.Position, StomperProject",
+            "position": "720, 720"
+          },
+          {
+            "$type": "Stomper.Engine.Renderer.CustomSpriteSize, StomperProject",
+            "Width": 360,
+            "Height": 30
+          },
+          {
+            "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+            "Offset": "0, 0",
+            "Size": "360, 30"
+          },
+          {
+            "$type": "Stomper.Engine.Physics.Static, StomperProject"
+          },
+            {
+                "$type": "Stomper.Engine.Renderer.SpriteTiling, StomperProject",
+                "HorizontalTiling": 32,
+                "VerticalTiling": 1
+            }
+        ]
+      },
+      "Systems": {
+        "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+        "$values": [
+                // Physics
+                "Collisions",
+                // Rendering
+                "SpriteLoader",
+                "SpriteTiledRenderer",
+                "ColouredLineRenderer",
+                "DebugBoxColliderUpdatePosition"
+        ]
+      }
+    },
+    {
+      "$type": "Stomper.Engine.Entity, StomperProject",
+      "Name": "Platform3",
+      "Components": {
+        "$type": "System.Collections.Generic.List`1[[Stomper.Engine.IECSComponent, StomperProject]], mscorlib",
+        "$values": [
+          {
+            "$type": "Stomper.Engine.Renderer.Sprite, StomperProject",
+            "TexturePath": "wall",
+            "Texture": null
+          },
+          {
+            "$type": "Stomper.Engine.Position, StomperProject",
+            "position": "960, 960"
+          },
+          {
+            "$type": "Stomper.Engine.Renderer.CustomSpriteSize, StomperProject",
+            "Width": 360,
+            "Height": 30
+          },
+          {
+            "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+            "Offset": "0, 0",
+            "Size": "360, 30"
+          },
+          {
+            "$type": "Stomper.Engine.Physics.Static, StomperProject"
+          },
+            {
+                "$type": "Stomper.Engine.Renderer.SpriteTiling, StomperProject",
+                "HorizontalTiling": 32,
+                "VerticalTiling": 1
+            }
+        ]
+      },
+      "Systems": {
+        "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+        "$values": [
+                // Physics
+                "Collisions",
+                // Rendering
+                "SpriteLoader",
+                "SpriteTiledRenderer",
+                "ColouredLineRenderer",
+                "DebugBoxColliderUpdatePosition"
+        ]
+      }
+    }
+]

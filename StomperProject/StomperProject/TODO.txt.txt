@@ -1,0 +1,4 @@
+different types of systems:
+ - systems that work on single entities
+ - systems that work on same components but different entities
+ - systems that work on different components on different entities

@@ -1,0 +1,15 @@
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/obj/x86/Debug/Microsoft.Xna.Framework.src.Graphics.Effect.StockEffects.FXB.AlphaTestEffect.fxb
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/obj/x86/Debug/Microsoft.Xna.Framework.src.Graphics.Effect.StockEffects.FXB.BasicEffect.fxb
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/obj/x86/Debug/Microsoft.Xna.Framework.src.Graphics.Effect.StockEffects.FXB.DualTextureEffect.fxb
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/obj/x86/Debug/Microsoft.Xna.Framework.src.Graphics.Effect.StockEffects.FXB.EnvironmentMapEffect.fxb
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/obj/x86/Debug/Microsoft.Xna.Framework.src.Graphics.Effect.StockEffects.FXB.SkinnedEffect.fxb
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/obj/x86/Debug/Microsoft.Xna.Framework.src.Graphics.Effect.StockEffects.FXB.SpriteEffect.fxb
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/obj/x86/Debug/Microsoft.Xna.Framework.src.Graphics.Effect.YUVToRGBA.YUVToRGBAEffect.fxb
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/bin/Debug/$(TargetFileName).config
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/bin/Debug/FNA.dll.config
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/bin/Debug/FNA.dll.mdb
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/bin/Debug/FNA.dll
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/obj/x86/Debug/FNA.dll
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/obj/x86/Debug/FNA.dll.mdb
+/home/david/SYNC/projects/StomperLatest/FNA-2402/FNA/obj/x86/Debug/.NETFramework,Version=v4.8.AssemblyAttribute.cs

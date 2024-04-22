@@ -1,0 +1,8 @@
+C:\Users\Dawid\Documents\sync\projects\StomperLatest\FNA-2402\FNA\bin\Debug\$(TargetFileName).config
+C:\Users\Dawid\Documents\sync\projects\StomperLatest\FNA-2402\FNA\bin\Debug\FNA.dll.config
+C:\Users\Dawid\Documents\sync\projects\StomperLatest\FNA-2402\FNA\bin\Debug\FNA.dll
+C:\Users\Dawid\Documents\sync\projects\StomperLatest\FNA-2402\FNA\bin\Debug\FNA.pdb
+C:\Users\Dawid\Documents\sync\projects\StomperLatest\FNA-2402\FNA\obj\x64\Debug\FNA.csproj.AssemblyReference.cache
+C:\Users\Dawid\Documents\sync\projects\StomperLatest\FNA-2402\FNA\obj\x64\Debug\FNA.csproj.CoreCompileInputs.cache
+C:\Users\Dawid\Documents\sync\projects\StomperLatest\FNA-2402\FNA\obj\x64\Debug\FNA.dll
+C:\Users\Dawid\Documents\sync\projects\StomperLatest\FNA-2402\FNA\obj\x64\Debug\FNA.pdb

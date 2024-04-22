@@ -1,0 +1,3 @@
+/home/david/SYNC/projects/StomperLatest/StomperProject/StomperProject/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/david/SYNC/projects/StomperLatest/StomperProject/StomperProject/bin/Debug/FNA.dll
+/home/david/SYNC/projects/StomperLatest/StomperProject/StomperProject/bin/Debug/FNA.dll.mdb
