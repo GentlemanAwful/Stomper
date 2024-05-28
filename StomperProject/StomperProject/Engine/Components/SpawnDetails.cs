@@ -1,12 +1,9 @@
-﻿using Stomper.Engine;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Stomper.Scripts.Components {
-    public struct PlayerNumber : IECSComponent {
+namespace Stomper.Engine {
+    public class SpawnDetails : IECSComponent {
         private int m_entityID;
         public int entityID {
             get {

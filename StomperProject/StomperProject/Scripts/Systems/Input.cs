@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+
 using Stomper.Engine;
+using Stomper.Scripts.Components;
 
 namespace Stomper.Scripts {
     public class Input : IECSSystem {
         public SystemType Type => SystemType.LOGIC;
-        public Type[] RequiredComponents => new Type[0];
+        public Type[] RequiredComponents { get; set; } = new Type[] { typeof(InputData) };
         public Type[] Exclusions => new Type[0];
 
         public enum InputState {
@@ -22,7 +24,7 @@ namespace Stomper.Scripts {
         public struct InputEvent : IGameEvent {
             public InputState   state;
             public Action       action;
-            public int          playerID;
+            //public int          playerID;
         }
 
         public enum Action {
@@ -71,25 +73,25 @@ namespace Stomper.Scripts {
             previousKeyboardState = new KeyboardState();
         }
 
-        private IGameEvent KeyboardToInput(Keys key, InputState newState, int playerID) {
+        private InputEvent KeyboardToInput(Keys key, InputState newState, int playerID) {
             return new InputEvent {
                 state = newState,
                 action = (Action)Enum.Parse(
                             typeof(Action),
                             KeyboardBindings[key]
                         ),
-                playerID = playerID
+                //playerID = playerID
             };
         }
 
-        private IGameEvent GamepadToInput(GamepadButtons button, InputState newState, int playerID) {
+        private InputEvent GamepadToInput(GamepadButtons button, InputState newState, int playerID) {
             return new InputEvent {
                 state = newState,
                 action = (Action)Enum.Parse(
                             typeof(Action),
                             GamepadBindings[button]
                         ),
-                playerID = playerID
+                //playerID = playerID
             };
         }
 
@@ -135,49 +137,58 @@ namespace Stomper.Scripts {
         }
 
         public (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents) {
-            List<IGameEvent> newInputEvents = new List<IGameEvent>();
+            foreach(Entity entity in entities) {
+                //Console.WriteLine($"entity.Name: {entity.Name}");
+                //List<IGameEvent> newInputEvents = new List<IGameEvent>();
+                List<InputEvent> newInputs = new List<InputEvent>();
 
-            // Keyboard input
-            KeyboardState currentKeyboardState = Keyboard.GetState();
+                // Keyboard input
+                KeyboardState currentKeyboardState = Keyboard.GetState();
 
-            IEnumerable<Keys> heldKeys      = currentKeyboardState.GetPressedKeys().Intersect(previousKeyboardState.GetPressedKeys());
-            IEnumerable<Keys> pressedKeys   = currentKeyboardState.GetPressedKeys().Except(previousKeyboardState.GetPressedKeys());
-            IEnumerable<Keys> releasedKeys  = previousKeyboardState.GetPressedKeys().Except(currentKeyboardState.GetPressedKeys());
+                IEnumerable<Keys> heldKeys      = currentKeyboardState.GetPressedKeys().Intersect(previousKeyboardState.GetPressedKeys());
+                IEnumerable<Keys> pressedKeys   = currentKeyboardState.GetPressedKeys().Except(previousKeyboardState.GetPressedKeys());
+                IEnumerable<Keys> releasedKeys  = previousKeyboardState.GetPressedKeys().Except(currentKeyboardState.GetPressedKeys());
 
-            // Only check keys with bindings
-            heldKeys = heldKeys.Where(key => KeyboardBindings.Keys.Any(binding => key == binding));
-            pressedKeys = pressedKeys.Where(key => KeyboardBindings.Keys.Any(binding => key == binding));
-            releasedKeys = releasedKeys.Where(key => KeyboardBindings.Keys.Any(binding => key == binding));
+                // Only check keys with bindings
+                heldKeys = heldKeys.Where(key => KeyboardBindings.Keys.Any(binding => key == binding));
+                pressedKeys = pressedKeys.Where(key => KeyboardBindings.Keys.Any(binding => key == binding));
+                releasedKeys = releasedKeys.Where(key => KeyboardBindings.Keys.Any(binding => key == binding));
 
-            newInputEvents.AddRange(heldKeys.Select(k => KeyboardToInput(k, InputState.HELD, 4)));
-            newInputEvents.AddRange(pressedKeys.Select(k => KeyboardToInput(k, InputState.PRESSED, 4)));
-            newInputEvents.AddRange(releasedKeys.Select(k => KeyboardToInput(k, InputState.RELEASED, 4)));
+                newInputs.AddRange(heldKeys.Select(k => KeyboardToInput(k, InputState.HELD, 4)));
+                newInputs.AddRange(pressedKeys.Select(k => KeyboardToInput(k, InputState.PRESSED, 4)));
+                newInputs.AddRange(releasedKeys.Select(k => KeyboardToInput(k, InputState.RELEASED, 4)));
 
-            previousKeyboardState = currentKeyboardState;
+                previousKeyboardState = currentKeyboardState;
 
-            // Gamepad
-            for(PlayerIndex playerIndex = PlayerIndex.One; playerIndex <= PlayerIndex.Four; playerIndex++) {
-                GamePadState state = GamePad.GetState(playerIndex);
+                // Gamepad
+                for(PlayerIndex playerIndex = PlayerIndex.One; playerIndex <= PlayerIndex.Four; playerIndex++) {
+                    GamePadState state = GamePad.GetState(playerIndex);
 
-                if(!state.IsConnected)
-                    continue;
+                    if(!state.IsConnected)
+                        continue;
 
-                GamePadState gamepadState = GamePad.GetState(playerIndex);
+                    GamePadState gamepadState = GamePad.GetState(playerIndex);
 
-                GamepadButtons[] currentGamepadButtons  = GamepadStateToButtons(gamepadState);
-                GamepadButtons[] previousGamepadButtons = GamepadStateToButtons(previousGamepadState[(int)playerIndex]);
-                IEnumerable<GamepadButtons> heldGamepadButtons      = currentGamepadButtons.Intersect(previousGamepadButtons);
-                IEnumerable<GamepadButtons> pressedGamepadButtons   = currentGamepadButtons.Except(previousGamepadButtons);
-                IEnumerable<GamepadButtons> releasedGamepadButtons  = previousGamepadButtons.Except(currentGamepadButtons);
+                    GamepadButtons[] currentGamepadButtons  = GamepadStateToButtons(gamepadState);
+                    GamepadButtons[] previousGamepadButtons = GamepadStateToButtons(previousGamepadState[(int)playerIndex]);
+                    IEnumerable<GamepadButtons> heldGamepadButtons      = currentGamepadButtons.Intersect(previousGamepadButtons);
+                    IEnumerable<GamepadButtons> pressedGamepadButtons   = currentGamepadButtons.Except(previousGamepadButtons);
+                    IEnumerable<GamepadButtons> releasedGamepadButtons  = previousGamepadButtons.Except(currentGamepadButtons);
 
-                newInputEvents.AddRange(heldGamepadButtons.Select(b => GamepadToInput(b, InputState.HELD, (int)playerIndex)));
-                newInputEvents.AddRange(pressedGamepadButtons.Select(b => GamepadToInput(b, InputState.PRESSED, (int)playerIndex)));
-                newInputEvents.AddRange(releasedGamepadButtons.Select(b => GamepadToInput(b, InputState.RELEASED, (int)playerIndex)));
+                    newInputs.AddRange(heldGamepadButtons.Select(b => GamepadToInput(b, InputState.HELD, (int)playerIndex)));
+                    newInputs.AddRange(pressedGamepadButtons.Select(b => GamepadToInput(b, InputState.PRESSED, (int)playerIndex)));
+                    newInputs.AddRange(releasedGamepadButtons.Select(b => GamepadToInput(b, InputState.RELEASED, (int)playerIndex)));
 
-                previousGamepadState[(int)playerIndex] = gamepadState;
+                    previousGamepadState[(int)playerIndex] = gamepadState;
+                }
+
+                InputData entityInputData = entity.GetComponent<InputData>();
+                //entityInputData.inputs.AddRange(newInputs);
+                entityInputData.inputs = newInputs;
+                entity.UpdateComponent(entityInputData);
             }
 
-            return (new List<Entity>(), newInputEvents);
+            return (entities, new List<IGameEvent>());
         }
     }
 }

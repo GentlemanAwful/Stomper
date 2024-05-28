@@ -93,6 +93,7 @@ namespace Stomper.Scripts {
                 new ColouredLineRenderer(),
             };
 
+            
             foreach(IECSSystem physicsSystem in m_systems.FindAll(s => s.Type == SystemType.PHYSICS)) {
                 physicsSystem.Initialize(this, m_config);
             }
@@ -104,17 +105,17 @@ namespace Stomper.Scripts {
             foreach(IECSSystem renderingSystem in m_systems.FindAll(s => s.Type == SystemType.RENDERING)) {
                 renderingSystem.Initialize(this, m_config);
             }
+            
         }
 
         protected override void UnloadContent() {
             // Clean up after yourself!
             base.UnloadContent();
 
+            
             foreach(IECSSystem system in m_systems) {
                 system.Dispose();
             }
-
-            //m_ecsManager.Dispose();
         }
 
         // Run game logic in here. Do NOT render anything here!

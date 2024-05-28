@@ -1,12 +1,13 @@
-﻿using Stomper.Engine;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Stomper.Engine;
+
 namespace Stomper.Scripts.Components {
-    public struct PlayerNumber : IECSComponent {
+    public struct InputData : IECSComponent {
         private int m_entityID;
         public int entityID {
             get {
@@ -16,5 +17,7 @@ namespace Stomper.Scripts.Components {
                 m_entityID = value;
             }
         }
+
+        public List<Input.InputEvent> inputs;
     }
 }

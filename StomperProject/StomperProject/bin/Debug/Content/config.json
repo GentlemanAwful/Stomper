@@ -63,6 +63,14 @@
         {
           "$type": "Stomper.Engine.PlayerTag, StomperProject",
           "Value": -1
+        },
+        {
+          "$type": "Stomper.Scripts.Components.JumpAcceleration, StomperProject",
+          "Value": 30
+        },
+        {
+          "$type": "Stomper.Scripts.Components.InputData, StomperProject",
+          "inputEvents": []
         }
       ]
     }

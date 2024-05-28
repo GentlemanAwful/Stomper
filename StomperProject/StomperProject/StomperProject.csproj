@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engine\Components\PlayerTag.cs" />
+    <Compile Include="Engine\Components\SpawnDetails.cs" />
     <Compile Include="Engine\ECSManager.cs" />
     <Compile Include="Engine\IGameEvent.cs" />
     <Compile Include="Engine\Entity.cs" />
@@ -62,7 +63,10 @@
     <Compile Include="Engine\Renderer\Systems\SpriteCustomSizeRenderer.cs" />
     <Compile Include="Engine\Renderer\Systems\SpriteRenderer.cs" />
     <Compile Include="Engine\Renderer\Systems\SpriteTiledRenderer.cs" />
+    <Compile Include="Scripts\Components\Keybinds.cs" />
+    <Compile Include="Scripts\Components\InputData.cs" />
     <Compile Include="Scripts\Components\PlayerNumber.cs" />
+    <Compile Include="Scripts\Components\JumpAcceleration.cs" />
     <Compile Include="Scripts\Components\WalkSpeed.cs" />
     <Compile Include="Scripts\Config.cs" />
     <Compile Include="Scripts\ConfigData.cs" />
