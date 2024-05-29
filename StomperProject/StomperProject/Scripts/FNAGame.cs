@@ -16,14 +16,14 @@ namespace Stomper.Scripts {
             }
         }
 
-        private Random m_random;
-        public Random Random => m_random;
+        private Random m_random;            // TODO maybe this should be an event or component/entity
+        public Random Random => m_random;   
         private Config m_config;
-        private List<IECSSystem> m_systems;
-        private List<Entity> m_entities;
+        private List<IECSSystem> m_systems; // TODO think about making it an array
+        private List<Entity> m_entities;    // TODO think about making it an array
 
 
-        public struct DeltaTimeEvent : IGameEvent {
+        public struct DeltaTimeEvent : IGameEvent { // TODO maybe this should be in a separate Defs.cs or Events.cs or something
             public GameTime gameTime;
         }
 
@@ -31,13 +31,13 @@ namespace Stomper.Scripts {
             GraphicsDeviceManager gdm = new GraphicsDeviceManager(this);
 
             // Typically you would load a config here...
-            gdm.PreferredBackBufferWidth = 1920;
-            gdm.PreferredBackBufferHeight = 1080;
+            gdm.PreferredBackBufferWidth    = 1920; // TODO support changing resolution in game
+            gdm.PreferredBackBufferHeight   = 1080;
             gdm.IsFullScreen = false;
             gdm.SynchronizeWithVerticalRetrace = true;
 
             // All content loaded will be in a "Content" folder
-            Content.RootDirectory = "Content";
+            Content.RootDirectory = "Content"; // TODO put this path into config.json
         }
 
         protected override void LoadContent() {
@@ -48,8 +48,8 @@ namespace Stomper.Scripts {
             {
                 TypeNameHandling = Newtonsoft.Json.TypeNameHandling.All
             };
-            m_entities = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Entity>>(System.IO.File.ReadAllText("Content/game.json"), settings);
-            m_config = Newtonsoft.Json.JsonConvert.DeserializeObject<Config>(System.IO.File.ReadAllText("Content/config.json"), settings);
+            m_entities  = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Entity>>(System.IO.File.ReadAllText("Content/game.json"), settings);
+            m_config    = Newtonsoft.Json.JsonConvert.DeserializeObject<Config>(System.IO.File.ReadAllText("Content/config.json"), settings);
 
             m_random = new Random(m_config.RandomSeed);
             for(int id = 0; id < m_entities.Count; id++) {
@@ -65,11 +65,9 @@ namespace Stomper.Scripts {
              */
             base.Initialize();
 
+            // TODO: Put into config.json
+            // These run in order!!
             m_systems = new List<IECSSystem> {
-                // TODO: Put these into game.json or config.json
-
-                // These run in order!!
-
                 // Physics first
                 new Gravity(),
                 new CollisionDetection(),
@@ -112,10 +110,16 @@ namespace Stomper.Scripts {
             // Clean up after yourself!
             base.UnloadContent();
 
-            
             foreach(IECSSystem system in m_systems) {
                 system.Dispose();
             }
+
+            m_entities = m_entities
+                .Select(e => default(Entity))
+                .ToList();
+
+            m_entities.Clear();
+            m_config = default;
         }
 
         // Run game logic in here. Do NOT render anything here!

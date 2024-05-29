@@ -3,7 +3,7 @@
   "RandomSeed": 4269,
   "DefaultClearColour": "100,149,237,255", // CornflowerBlue
   "Gravity": 45,
-  "JumpAcceleration": 30, // original 1.37,
+  "JumpAcceleration": 30,
   "WalkSpeed": 1,
   "DebugLineWidth": 2,
   "Keybindings": {
@@ -71,6 +71,15 @@
         {
           "$type": "Stomper.Scripts.Components.InputData, StomperProject",
           "inputEvents": []
+        },
+        {
+          "$type": "Stomper.Scripts.Components.Keybinds, StomperProject",
+          "Keybindings": {
+            "Space": "JUMP",
+            "A": "MOVE_LEFT",
+            "D": "MOVE_RIGHT",
+            "RightControl": "ATTACK"
+          }
         }
       ]
     }

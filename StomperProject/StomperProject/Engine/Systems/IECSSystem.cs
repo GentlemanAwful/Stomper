@@ -52,7 +52,6 @@ namespace Stomper.Engine {
         Type[] Exclusions { get; }
         void Initialize(FNAGame game, Config config);
         void Dispose();
-        (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents);
-        //(Entity[], IGameEvent[]) Execute(Entity[] entities, IGameEvent[] gameEvents);
+        (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents); // TODO pass and receive arrays
     }
 }

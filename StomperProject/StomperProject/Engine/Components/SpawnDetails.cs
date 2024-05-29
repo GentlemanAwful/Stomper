@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Stomper.Engine {
-    public class SpawnDetails : IECSComponent {
+    public struct SpawnDetails : IECSComponent {
         private int m_entityID;
         public int entityID {
             get {
@@ -13,5 +13,8 @@ namespace Stomper.Engine {
                 m_entityID = value;
             }
         }
+
+        public int spawnedPlayers;
+        public Entity[] playerTemplates;
     }
 }

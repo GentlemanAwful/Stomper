@@ -8,11 +8,136 @@
         "position": "0, 1060"
       },
       {
-        "$type": "Stomper.Engine.SpawnDetails, StomperProject"
+        "$type": "Stomper.Engine.SpawnDetails, StomperProject",
+        "spawnedPlayers": 0,
+        "playerTemplates": [
+          {
+            "$type": "Stomper.Engine.Entity, StomperProject",
+            "Name": "Player1",
+            "Components": {
+              "$type": "System.Collections.Generic.List`1[[Stomper.Engine.IECSComponent, StomperProject]], mscorlib",
+              "$values": [
+                {
+                  "$type": "Stomper.Engine.Renderer.Sprite, StomperProject",
+                  "TexturePath": "char",
+                  "Texture": null
+                },
+                {
+                  "$type": "Stomper.Engine.Position, StomperProject",
+                  "position": "640, 128"
+                },
+                {
+                  "$type": "Stomper.Engine.Physics.Mass, StomperProject",
+                  "Amount": 100.0,
+                  "Acceleration": "0, 0"
+                },
+                {
+                  "$type": "Stomper.Engine.Renderer.CustomSpriteSize, StomperProject",
+                  "Width": 50,
+                  "Height": 50
+                },
+                {
+                  "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+                  "Offset": "0, 0",
+                  "Size": "50, 50"
+                },
+                {
+                  "$type": "Stomper.Scripts.Components.WalkSpeed, StomperProject",
+                  "Value": 0.5
+                },
+                {
+                  "$type": "Stomper.Engine.PlayerTag, StomperProject",
+                  "Value": -1
+                },
+                {
+                  "$type": "Stomper.Scripts.Components.JumpAcceleration, StomperProject",
+                  "Value": 30
+                },
+                {
+                  "$type": "Stomper.Scripts.Components.InputData, StomperProject",
+                  "inputEvents": []
+                },
+                {
+                  "$type": "Stomper.Scripts.Components.Keybinds, StomperProject",
+                  "Keybindings": {
+                    "Space": "JUMP",
+                    "A": "MOVE_LEFT",
+                    "D": "MOVE_RIGHT",
+                    "RightControl": "ATTACK"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "$type": "Stomper.Engine.Entity, StomperProject",
+            "Name": "Player1",
+            "Components": {
+              "$type": "System.Collections.Generic.List`1[[Stomper.Engine.IECSComponent, StomperProject]], mscorlib",
+              "$values": [
+                {
+                  "$type": "Stomper.Engine.Renderer.Sprite, StomperProject",
+                  "TexturePath": "char",
+                  "Texture": null
+                },
+                {
+                  "$type": "Stomper.Engine.Position, StomperProject",
+                  "position": "640, 128"
+                },
+                {
+                  "$type": "Stomper.Engine.Physics.Mass, StomperProject",
+                  "Amount": 100.0,
+                  "Acceleration": "0, 0"
+                },
+                {
+                  "$type": "Stomper.Engine.Renderer.CustomSpriteSize, StomperProject",
+                  "Width": 50,
+                  "Height": 50
+                },
+                {
+                  "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+                  "Offset": "0, 0",
+                  "Size": "50, 50"
+                },
+                {
+                  "$type": "Stomper.Scripts.Components.WalkSpeed, StomperProject",
+                  "Value": 0.5
+                },
+                {
+                  "$type": "Stomper.Engine.PlayerTag, StomperProject",
+                  "Value": -1
+                },
+                {
+                  "$type": "Stomper.Scripts.Components.JumpAcceleration, StomperProject",
+                  "Value": 30
+                },
+                {
+                  "$type": "Stomper.Scripts.Components.InputData, StomperProject",
+                  "inputEvents": []
+                },
+                {
+                  "$type": "Stomper.Scripts.Components.Keybinds, StomperProject",
+                  "Keybindings": {
+                    "Up": "JUMP",
+                    "Left": "MOVE_LEFT",
+                    "Right": "MOVE_RIGHT",
+                    "Down": "ATTACK"
+                  }
+                }
+              ]
+            }
+          }
+        ]
       },
       {
         "$type": "Stomper.Scripts.Components.InputData, StomperProject",
         "inputEvents": []
+      },
+      {
+        "$type": "Stomper.Scripts.Components.Keybinds, StomperProject",
+        "Keybindings": {
+          "P": "SPAWN"
+        }
       }
     ]
   },

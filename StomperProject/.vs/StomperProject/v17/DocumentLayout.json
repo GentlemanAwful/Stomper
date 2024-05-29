@@ -3,48 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|c:\\users\\dawid\\documents\\projects\\stomper\\stomperproject\\stomperproject\\scripts\\systems\\walk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\scripts\\systems\\walk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\scripts\\systems\\jump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\scripts\\systems\\jump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|c:\\users\\dawid\\documents\\projects\\stomper\\stomperproject\\stomperproject\\scripts\\fnagame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\scripts\\fnagame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\scripts\\systems\\playerspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|c:\\users\\dawid\\documents\\projects\\stomper\\stomperproject\\stomperproject\\scripts\\systems\\playerspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\scripts\\systems\\playerspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\scripts\\systems\\input.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\scripts\\systems\\input.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\scripts\\components\\inputdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\scripts\\components\\inputdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\bin\\Debug\\Content\\game.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StomperProject\\bin\\Debug\\Content\\game.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\engine\\systems\\iecssystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\engine\\systems\\iecssystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\engine\\components\\spawndetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\engine\\components\\spawndetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\bin\\Debug\\Content\\config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StomperProject\\bin\\Debug\\Content\\config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\bin\\Debug\\Content\\game.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StomperProject\\bin\\Debug\\Content\\game.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\engine\\components\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\engine\\components\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\scripts\\fnagame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\scripts\\fnagame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\engine\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\engine\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\engine\\physics\\systems\\resolvestaticcollision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\engine\\physics\\systems\\resolvestaticcollision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\engine\\physics\\systems\\resolvedynamiccollision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\engine\\physics\\systems\\resolvedynamiccollision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\engine\\physics\\systems\\collisiondetection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\engine\\physics\\systems\\collisiondetection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\scripts\\systems\\input.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\scripts\\systems\\input.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\bin\\Debug\\Content\\config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StomperProject\\bin\\Debug\\Content\\config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\scripts\\components\\keybinds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -55,8 +55,20 @@
       "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\scripts\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\scripts\\components\\jumpacceleration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\scripts\\components\\jumpacceleration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\scripts\\systems\\walk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\scripts\\systems\\walk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\scripts\\systems\\jump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\scripts\\systems\\jump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\scripts\\components\\inputdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\scripts\\components\\inputdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\stomperproject\\engine\\components\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE363B3B-8862-49A2-AB6E-26EFF077E758}|StomperProject\\StomperProject.csproj|solutionrelative:stomperproject\\engine\\components\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,25 +78,72 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "FNAGame.cs",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\FNAGame.cs",
               "RelativeDocumentMoniker": "StomperProject\\Scripts\\FNAGame.cs",
               "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\FNAGame.cs",
               "RelativeToolTip": "StomperProject\\Scripts\\FNAGame.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAzwFIAAAAYAAAA",
+              "ViewState": "AQIAACkAAAAAAAAAAAAiwHkAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-02T14:29:28.868Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "IECSSystem.cs",
+              "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Engine\\Systems\\IECSSystem.cs",
+              "RelativeDocumentMoniker": "StomperProject\\Engine\\Systems\\IECSSystem.cs",
+              "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Engine\\Systems\\IECSSystem.cs",
+              "RelativeToolTip": "StomperProject\\Engine\\Systems\\IECSSystem.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAwwDYAAAB/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T08:11:13.873Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ResolveDynamicCollision.cs",
+              "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Engine\\Physics\\Systems\\ResolveDynamicCollision.cs",
+              "RelativeDocumentMoniker": "StomperProject\\Engine\\Physics\\Systems\\ResolveDynamicCollision.cs",
+              "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Engine\\Physics\\Systems\\ResolveDynamicCollision.cs",
+              "RelativeToolTip": "StomperProject\\Engine\\Physics\\Systems\\ResolveDynamicCollision.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T08:11:35.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ResolveStaticCollision.cs",
+              "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Engine\\Physics\\Systems\\ResolveStaticCollision.cs",
+              "RelativeDocumentMoniker": "StomperProject\\Engine\\Physics\\Systems\\ResolveStaticCollision.cs",
+              "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Engine\\Physics\\Systems\\ResolveStaticCollision.cs",
+              "RelativeToolTip": "StomperProject\\Engine\\Physics\\Systems\\ResolveStaticCollision.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAA9wBoAAABjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T08:11:32.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CollisionDetection.cs",
+              "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Engine\\Physics\\Systems\\CollisionDetection.cs",
+              "RelativeDocumentMoniker": "StomperProject\\Engine\\Physics\\Systems\\CollisionDetection.cs",
+              "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Engine\\Physics\\Systems\\CollisionDetection.cs",
+              "RelativeToolTip": "StomperProject\\Engine\\Physics\\Systems\\CollisionDetection.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACAAAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T08:10:59.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "Walk.cs",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Systems\\Walk.cs",
               "RelativeDocumentMoniker": "StomperProject\\Scripts\\Systems\\Walk.cs",
@@ -92,25 +151,23 @@
               "RelativeToolTip": "StomperProject\\Scripts\\Systems\\Walk.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T07:42:38.122Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-28T07:42:38.122Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 14,
               "Title": "Jump.cs",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Systems\\Jump.cs",
               "RelativeDocumentMoniker": "StomperProject\\Scripts\\Systems\\Jump.cs",
               "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Systems\\Jump.cs",
               "RelativeToolTip": "StomperProject\\Scripts\\Systems\\Jump.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAA5wCoAAAANAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwCoAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T07:47:49.357Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T07:47:49.357Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 16,
               "Title": "Position.cs",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Engine\\Components\\Position.cs",
               "RelativeDocumentMoniker": "StomperProject\\Engine\\Components\\Position.cs",
@@ -122,19 +179,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
+              "Title": "Input.cs",
+              "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Systems\\Input.cs",
+              "RelativeDocumentMoniker": "StomperProject\\Scripts\\Systems\\Input.cs",
+              "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Systems\\Input.cs",
+              "RelativeToolTip": "StomperProject\\Scripts\\Systems\\Input.cs",
+              "ViewState": "AQIAAIwAAAAAAAAAAADwv5wAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-05T10:00:55.81Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Keybinds.cs",
+              "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Components\\Keybinds.cs",
+              "RelativeDocumentMoniker": "StomperProject\\Scripts\\Components\\Keybinds.cs",
+              "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Components\\Keybinds.cs",
+              "RelativeToolTip": "StomperProject\\Scripts\\Components\\Keybinds.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T16:25:22.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "SpawnDetails.cs",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Engine\\Components\\SpawnDetails.cs",
               "RelativeDocumentMoniker": "StomperProject\\Engine\\Components\\SpawnDetails.cs",
               "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Engine\\Components\\SpawnDetails.cs",
               "RelativeToolTip": "StomperProject\\Engine\\Components\\SpawnDetails.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-17T11:52:56.98Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 5,
               "Title": "Entity.cs",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Engine\\Entity.cs",
               "RelativeDocumentMoniker": "StomperProject\\Engine\\Entity.cs",
@@ -146,31 +227,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "game.json",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\bin\\Debug\\Content\\game.json",
               "RelativeDocumentMoniker": "StomperProject\\bin\\Debug\\Content\\game.json",
               "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\bin\\Debug\\Content\\game.json",
               "RelativeToolTip": "StomperProject\\bin\\Debug\\Content\\game.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAtAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-05-17T11:47:07.912Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Keybinds.cs",
-              "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Components\\Keybinds.cs",
-              "RelativeDocumentMoniker": "StomperProject\\Scripts\\Components\\Keybinds.cs",
-              "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Components\\Keybinds.cs",
-              "RelativeToolTip": "StomperProject\\Scripts\\Components\\Keybinds.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T16:25:22.114Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 15,
               "Title": "InputData.cs",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Components\\InputData.cs",
               "RelativeDocumentMoniker": "StomperProject\\Scripts\\Components\\InputData.cs",
@@ -182,61 +251,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "JumpAcceleration.cs",
-              "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Components\\JumpAcceleration.cs",
-              "RelativeDocumentMoniker": "StomperProject\\Scripts\\Components\\JumpAcceleration.cs",
-              "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Components\\JumpAcceleration.cs",
-              "RelativeToolTip": "StomperProject\\Scripts\\Components\\JumpAcceleration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T07:58:49.527Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Input.cs",
-              "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Systems\\Input.cs",
-              "RelativeDocumentMoniker": "StomperProject\\Scripts\\Systems\\Input.cs",
-              "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Systems\\Input.cs",
-              "RelativeToolTip": "StomperProject\\Scripts\\Systems\\Input.cs",
-              "ViewState": "AQIAAHcAAAAAAAAAAADwv4wAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-05T10:00:55.81Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 12,
               "Title": "Config.cs",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Config.cs",
               "RelativeDocumentMoniker": "StomperProject\\Scripts\\Config.cs",
               "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Config.cs",
               "RelativeToolTip": "StomperProject\\Scripts\\Config.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAbAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-05T13:23:59.102Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "PlayerSpawner.cs",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Systems\\PlayerSpawner.cs",
               "RelativeDocumentMoniker": "StomperProject\\Scripts\\Systems\\PlayerSpawner.cs",
               "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\Scripts\\Systems\\PlayerSpawner.cs",
               "RelativeToolTip": "StomperProject\\Scripts\\Systems\\PlayerSpawner.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAmwEwAAAAaAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACcAAAB7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-05T08:42:49.13Z"
+              "WhenOpened": "2024-03-05T08:42:49.13Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "config.json",
               "DocumentMoniker": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\bin\\Debug\\Content\\config.json",
               "RelativeDocumentMoniker": "StomperProject\\bin\\Debug\\Content\\config.json",
               "ToolTip": "C:\\Users\\Dawid\\Documents\\Projects\\Stomper\\StomperProject\\StomperProject\\bin\\Debug\\Content\\config.json",
               "RelativeToolTip": "StomperProject\\bin\\Debug\\Content\\config.json",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAAEYAAAAIAAAA",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAABwAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-02-02T14:41:54.533Z"
             }

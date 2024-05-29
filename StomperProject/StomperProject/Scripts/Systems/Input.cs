@@ -11,15 +11,15 @@ using Stomper.Scripts.Components;
 namespace Stomper.Scripts {
     public class Input : IECSSystem {
         public SystemType Type => SystemType.LOGIC;
-        public Type[] RequiredComponents { get; set; } = new Type[] { typeof(InputData) };
+        public Type[] RequiredComponents { get; set; } = new Type[] { typeof(InputData), typeof(Keybinds) };
         public Type[] Exclusions => new Type[0];
 
         public enum InputState {
             UNDEFINED = 0,
 
-            PRESSED,
-            HELD,
-            RELEASED
+            PRESSED,    // Button down this frame
+            HELD,       // button held down from before
+            RELEASED    // Button released this frame
         }
         public struct InputEvent : IGameEvent {
             public InputState   state;
@@ -27,6 +27,10 @@ namespace Stomper.Scripts {
             //public int          playerID;
         }
 
+        // TODO This is game specific, doesn't belong in engine. Put into json.
+        /// <summary>
+        /// All the actions a player can make
+        /// </summary>
         public enum Action {
             UNDEFINED = 0,
 
@@ -55,32 +59,37 @@ namespace Stomper.Scripts {
             SELECT
         }
 
-        private Dictionary<Keys, string> KeyboardBindings;
+        //private Dictionary<Keys, string> KeyboardBindings;
         private Dictionary<GamepadButtons, string> GamepadBindings;
 
         private KeyboardState   previousKeyboardState;
         private GamePadState[]  previousGamepadState;
 
         public void Initialize(FNAGame game, Config config) {
-            KeyboardBindings = config.Keybindings;
+            //KeyboardBindings = config.Keybindings;
             GamepadBindings = config.GamepadBindings;
             previousGamepadState = new GamePadState[4];
         }
         public void Dispose() {
-            KeyboardBindings = null;
+            //KeyboardBindings = null;
             GamepadBindings = null;
             previousGamepadState = new GamePadState[4];
             previousKeyboardState = new KeyboardState();
         }
 
-        private InputEvent KeyboardToInput(Keys key, InputState newState, int playerID) {
+        /// <summary>
+        /// Construct an InputEvent from supplied keyboard input data
+        /// </summary>
+        /// <param name="input">Pressed button</param>
+        /// <param name="newState">State of press (pressed, held, released)</param>
+        /// <returns>InputEvent with appropriate state and pressed button</returns>
+        private static InputEvent KeyboardToInput(string input, InputState newState) {
             return new InputEvent {
                 state = newState,
                 action = (Action)Enum.Parse(
                             typeof(Action),
-                            KeyboardBindings[key]
-                        ),
-                //playerID = playerID
+                            input
+                        )
             };
         }
 
@@ -138,10 +147,10 @@ namespace Stomper.Scripts {
 
         public (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents) {
             foreach(Entity entity in entities) {
-                //Console.WriteLine($"entity.Name: {entity.Name}");
-                //List<IGameEvent> newInputEvents = new List<IGameEvent>();
                 List<InputEvent> newInputs = new List<InputEvent>();
+                Dictionary<Keys, string> KeyboardBindings = entity.GetComponent<Keybinds>().Keybindings;
 
+                // --------------------------------------------------------
                 // Keyboard input
                 KeyboardState currentKeyboardState = Keyboard.GetState();
 
@@ -153,13 +162,14 @@ namespace Stomper.Scripts {
                 heldKeys = heldKeys.Where(key => KeyboardBindings.Keys.Any(binding => key == binding));
                 pressedKeys = pressedKeys.Where(key => KeyboardBindings.Keys.Any(binding => key == binding));
                 releasedKeys = releasedKeys.Where(key => KeyboardBindings.Keys.Any(binding => key == binding));
-
-                newInputs.AddRange(heldKeys.Select(k => KeyboardToInput(k, InputState.HELD, 4)));
-                newInputs.AddRange(pressedKeys.Select(k => KeyboardToInput(k, InputState.PRESSED, 4)));
-                newInputs.AddRange(releasedKeys.Select(k => KeyboardToInput(k, InputState.RELEASED, 4)));
+                
+                newInputs.AddRange(heldKeys.Select(k => KeyboardToInput(KeyboardBindings[k], InputState.HELD)));
+                newInputs.AddRange(pressedKeys.Select(k => KeyboardToInput(KeyboardBindings[k], InputState.PRESSED)));
+                newInputs.AddRange(releasedKeys.Select(k => KeyboardToInput(KeyboardBindings[k], InputState.RELEASED)));
 
                 previousKeyboardState = currentKeyboardState;
 
+                // --------------------------------------------------------
                 // Gamepad
                 for(PlayerIndex playerIndex = PlayerIndex.One; playerIndex <= PlayerIndex.Four; playerIndex++) {
                     GamePadState state = GamePad.GetState(playerIndex);
