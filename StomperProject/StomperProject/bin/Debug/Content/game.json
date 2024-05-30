@@ -9,6 +9,10 @@
       },
       {
         "$type": "Stomper.Engine.SpawnDetails, StomperProject",
+        "spawnPoints": [
+          "640, 128",
+          "1280, 128"
+        ],
         "spawnedPlayers": 0,
         "playerTemplates": [
           {

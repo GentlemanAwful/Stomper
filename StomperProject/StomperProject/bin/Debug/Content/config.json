@@ -22,10 +22,6 @@
 
     "SELECT": "SPAWN"
   },
-  "Spawns": [
-    "640, 128",
-    "1280, 128"
-  ],
   "PlayerTemplate": {
     "$type": "Stomper.Engine.Entity, StomperProject",
     "Name": "Player1",

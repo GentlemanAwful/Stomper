@@ -45,6 +45,8 @@ Features:
 
     - debugging tools
 
+    - improve collisions
+
 
 Bugfixes:
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,7 +15,8 @@ namespace Stomper.Engine {
             }
         }
 
-        public int spawnedPlayers;
-        public Entity[] playerTemplates;
+        public Vector2[]    spawnPoints;
+        public int          spawnedPlayers;
+        public Entity[]     playerTemplates;
     }
 }
