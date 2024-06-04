@@ -41,9 +41,12 @@
                   "Height": 50
                 },
                 {
-                  "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+                  "$type": "Stomper.Engine.Physics.HitboxSquare, StomperProject",
                   "Offset": "0, 0",
                   "Size": "50, 50"
+                },
+                {
+                  "$type": "Stomper.Engine.Physics.Collider, StomperProject"
                 },
                 {
                   "$type": "Stomper.Scripts.Components.WalkSpeed, StomperProject",
@@ -67,8 +70,13 @@
                     "Space": "JUMP",
                     "A": "MOVE_LEFT",
                     "D": "MOVE_RIGHT",
-                    "RightControl": "ATTACK"
+                    "LeftControl": "ATTACK"
                   }
+                },
+                {
+                  "$type": "Stomper.Scripts.Components.StompData, StomperProject",
+                  "stomping": false,
+                  "stompVelocity": 1
                 }
               ]
             }
@@ -99,9 +107,12 @@
                   "Height": 50
                 },
                 {
-                  "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+                  "$type": "Stomper.Engine.Physics.HitboxSquare, StomperProject",
                   "Offset": "0, 0",
                   "Size": "50, 50"
+                },
+                {
+                  "$type": "Stomper.Engine.Physics.Collider, StomperProject"
                 },
                 {
                   "$type": "Stomper.Scripts.Components.WalkSpeed, StomperProject",
@@ -127,6 +138,11 @@
                     "Right": "MOVE_RIGHT",
                     "Down": "ATTACK"
                   }
+                },
+                {
+                  "$type": "Stomper.Scripts.Components.StompData, StomperProject",
+                  "stomping": false,
+                  "stompVelocity": 1
                 }
               ]
             }
@@ -166,9 +182,12 @@
           "Height": 20
         },
         {
-          "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+          "$type": "Stomper.Engine.Physics.HitboxSquare, StomperProject",
           "Offset": "0, 0",
           "Size": "1920, 20"
+        },
+        {
+          "$type": "Stomper.Engine.Physics.Collider, StomperProject"
         },
         {
           "$type": "Stomper.Engine.Physics.Static, StomperProject"
@@ -177,6 +196,9 @@
           "$type": "Stomper.Engine.Renderer.SpriteTiling, StomperProject",
           "HorizontalTiling": 64,
           "VerticalTiling": 1
+        },
+        {
+          "$type": "Stomper.Scripts.Components.StompBlocker, StomperProject"
         }
       ]
     }
@@ -202,9 +224,12 @@
           "Height": 30
         },
         {
-          "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+          "$type": "Stomper.Engine.Physics.HitboxSquare, StomperProject",
           "Offset": "0, 0",
           "Size": "480, 30"
+        },
+        {
+          "$type": "Stomper.Engine.Physics.Collider, StomperProject"
         },
         {
           "$type": "Stomper.Engine.Physics.Static, StomperProject"
@@ -238,9 +263,12 @@
           "Height": 30
         },
         {
-          "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+          "$type": "Stomper.Engine.Physics.HitboxSquare, StomperProject",
           "Offset": "0, 0",
           "Size": "480, 30"
+        },
+        {
+          "$type": "Stomper.Engine.Physics.Collider, StomperProject"
         },
         {
           "$type": "Stomper.Engine.Physics.Static, StomperProject"
@@ -274,9 +302,12 @@
           "Height": 30
         },
         {
-          "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+          "$type": "Stomper.Engine.Physics.HitboxSquare, StomperProject",
           "Offset": "0, 0",
           "Size": "360, 30"
+        },
+        {
+          "$type": "Stomper.Engine.Physics.Collider, StomperProject"
         },
         {
           "$type": "Stomper.Engine.Physics.Static, StomperProject"
@@ -310,9 +341,12 @@
           "Height": 30
         },
         {
-          "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+          "$type": "Stomper.Engine.Physics.HitboxSquare, StomperProject",
           "Offset": "0, 0",
           "Size": "360, 30"
+        },
+        {
+          "$type": "Stomper.Engine.Physics.Collider, StomperProject"
         },
         {
           "$type": "Stomper.Engine.Physics.Static, StomperProject"
@@ -346,12 +380,15 @@
           "Height": 30
         },
         {
-          "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+          "$type": "Stomper.Engine.Physics.HitboxSquare, StomperProject",
           "Offset": "0, 0",
           "Size": "360, 30"
         },
         {
           "$type": "Stomper.Engine.Physics.Static, StomperProject"
+        },
+        {
+          "$type": "Stomper.Engine.Physics.Collider, StomperProject"
         },
         {
           "$type": "Stomper.Engine.Renderer.SpriteTiling, StomperProject",

@@ -48,10 +48,10 @@ namespace Stomper.Engine {
 
     public interface IECSSystem {
         SystemType Type { get; }
-        Type[] RequiredComponents { get; }
+        Type[] Archetype { get; }
         Type[] Exclusions { get; }
         void Initialize(FNAGame game, Config config);
         void Dispose();
-        (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents); // TODO pass and receive arrays
+        (Entity[], IGameEvent[]) Execute(Entity[] entities, IGameEvent[] gameEvents); // TODO pass and receive arrays
     }
 }

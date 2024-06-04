@@ -40,16 +40,16 @@
   <ItemGroup>
     <Compile Include="Engine\Components\PlayerTag.cs" />
     <Compile Include="Engine\Components\SpawnDetails.cs" />
-    <Compile Include="Engine\ECSManager.cs" />
     <Compile Include="Engine\IGameEvent.cs" />
     <Compile Include="Engine\Entity.cs" />
     <Compile Include="Engine\Components\IECSComponent.cs" />
     <Compile Include="Engine\Components\Position.cs" />
+    <Compile Include="Engine\Physics\Components\Collider.cs" />
     <Compile Include="Engine\Physics\Systems\ResolveDynamicCollision.cs" />
     <Compile Include="Engine\Systems\IECSSystem.cs" />
     <Compile Include="Engine\Systems\SpriteLoader.cs" />
     <Compile Include="Engine\Systems\DebugBoxColliderUpdatePosition.cs" />
-    <Compile Include="Engine\Physics\Components\BoxCollider.cs" />
+    <Compile Include="Engine\Physics\Components\HitboxSquare.cs" />
     <Compile Include="Engine\Physics\Components\Mass.cs" />
     <Compile Include="Engine\Physics\Components\Static.cs" />
     <Compile Include="Engine\Physics\Systems\Gravity.cs" />
@@ -67,10 +67,15 @@
     <Compile Include="Scripts\Components\InputData.cs" />
     <Compile Include="Scripts\Components\PlayerNumber.cs" />
     <Compile Include="Scripts\Components\JumpAcceleration.cs" />
+    <Compile Include="Scripts\Components\StompBlocker.cs" />
+    <Compile Include="Scripts\Components\StompData.cs" />
     <Compile Include="Scripts\Components\WalkSpeed.cs" />
     <Compile Include="Scripts\Config.cs" />
     <Compile Include="Scripts\ConfigData.cs" />
     <Compile Include="Scripts\Systems\PlayerSpawner.cs" />
+    <Compile Include="Scripts\Systems\Stomp.cs" />
+    <Compile Include="Scripts\Systems\StopStomp.cs" />
+    <Compile Include="Scripts\Systems\StartStomp.cs" />
     <Compile Include="Scripts\Systems\Walk.cs" />
     <Compile Include="Scripts\Systems\Jump.cs" />
     <Compile Include="Scripts\Systems\Input.cs" />

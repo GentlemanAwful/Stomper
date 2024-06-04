@@ -6,41 +6,47 @@ using Microsoft.Xna.Framework;
 
 using Stomper.Scripts;
 
-namespace Stomper.Engine.Physics
-{
-    public class ResolveDynamicCollision : IECSSystem
-    {
+namespace Stomper.Engine.Physics {
+    public class ResolveDynamicCollision : IECSSystem {
 		public SystemType Type => SystemType.PHYSICS;
-        public Type[] RequiredComponents => new Type[] { typeof(Position), typeof(BoxCollider) };
+        public Type[] Archetype => new Type[] { typeof(Position), typeof(HitboxSquare), typeof(Collider) };
         public Type[] Exclusions => new Type[0];
 
-        public void Initialize(FNAGame game, Config config)
-        {
+        public void Initialize(FNAGame game, Config config) {
 
         }
 
-        public void Dispose()
-        {
+        public void Dispose() {
 
         }
 
-        public (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents)
-        {
+        public (Entity[], IGameEvent[]) Execute(Entity[] entities, IGameEvent[] gameEvents) {
             List<Entity> updatedEntities = new List<Entity>();
 
-            foreach (CollisionDetection.CollisionDetected collisionEvent in gameEvents.FindAll(ge => ge is CollisionDetection.CollisionDetected && !((CollisionDetection.CollisionDetected)ge).staticCollision))
-            {
+            IEnumerable<CollisionDetection.CollisionDetected> relevantCollisionEvents = gameEvents
+                .Where(ge => ge is CollisionDetection.CollisionDetected)
+                .Select(ge => (CollisionDetection.CollisionDetected)ge)
+                .Where(cd => !cd.staticCollision);
+
+            foreach(CollisionDetection.CollisionDetected collisionEvent in relevantCollisionEvents) {
                 // Getters
-                Entity entity0 = entities.Find(e => e.ID == collisionEvent.entity0);
-                Entity entity1 = entities.Find(e => e.ID == collisionEvent.entity1);
+                bool entitiesHaveCollider = entities
+                    .Where(e => new List<int> { collisionEvent.entity0, collisionEvent.entity1 }.Contains(e.ID))
+                    .Where(e => e.HasComponent<Collider>())
+                    .Count() > 1;
+
+                if(!entitiesHaveCollider) continue;
+
+                Entity entity0 = entities.First(e => e.ID == collisionEvent.entity0);
+                Entity entity1 = entities.First(e => e.ID == collisionEvent.entity1);
 
                 Mass mass0              = entity0.GetComponent<Mass>();
                 Position position0      = entity0.GetComponent<Position>();
-                BoxCollider collider0   = entity0.GetComponent<BoxCollider>();
+                HitboxSquare collider0   = entity0.GetComponent<HitboxSquare>();
 
                 Mass mass1              = entity1.GetComponent<Mass>();
                 Position position1      = entity1.GetComponent<Position>();
-                BoxCollider collider1   = entity1.GetComponent<BoxCollider>();
+                HitboxSquare collider1   = entity1.GetComponent<HitboxSquare>();
                 
                 // Do work
                 Vector2 center0 = position0.position + (collider0.Size * 0.5f);
@@ -60,7 +66,7 @@ namespace Stomper.Engine.Physics
                 updatedEntities.Add(entity1);
             }
 
-            return (updatedEntities, new List<IGameEvent>());
+            return (updatedEntities.ToArray(), new IGameEvent[0]);
         }
     }
 }

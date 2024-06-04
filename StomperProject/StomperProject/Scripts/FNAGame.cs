@@ -16,14 +16,19 @@ namespace Stomper.Scripts {
             }
         }
 
-        private Random m_random;            // TODO maybe this should be an event or component/entity
+        private Random m_random;            // TODO maybe this should be an event or component
         public Random Random => m_random;   
         private Config m_config;
-        private List<IECSSystem> m_systems; // TODO think about making it an array
-        private List<Entity> m_entities;    // TODO think about making it an array
+
+        private IECSSystem[] m_systems;
+        private IECSSystem[] m_physicsSystems;
+        private IECSSystem[] m_logicSystems;
+        private IECSSystem[] m_renderingSystems;
+
+        private List<Entity> m_entities;
 
 
-        public struct DeltaTimeEvent : IGameEvent { // TODO maybe this should be in a separate Defs.cs or Events.cs or something
+        public struct DeltaTimeEvent : IGameEvent { // TODO this should probably be in a separate Defs.cs or Events.cs or something
             public GameTime gameTime;
         }
 
@@ -36,7 +41,6 @@ namespace Stomper.Scripts {
             gdm.IsFullScreen = false;
             gdm.SynchronizeWithVerticalRetrace = true;
 
-            // All content loaded will be in a "Content" folder
             Content.RootDirectory = "Content"; // TODO put this path into config.json
         }
 
@@ -44,18 +48,14 @@ namespace Stomper.Scripts {
             // Load textures, sounds, and so on in here...
             base.LoadContent();
 
-            Newtonsoft.Json.JsonSerializerSettings settings = new Newtonsoft.Json.JsonSerializerSettings()
-            {
-                TypeNameHandling = Newtonsoft.Json.TypeNameHandling.All
-            };
+            Newtonsoft.Json.JsonSerializerSettings settings = new Newtonsoft.Json.JsonSerializerSettings() { TypeNameHandling = Newtonsoft.Json.TypeNameHandling.All };
+
+            m_random    = new Random(m_config.RandomSeed);
             m_entities  = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Entity>>(System.IO.File.ReadAllText("Content/game.json"), settings);
             m_config    = Newtonsoft.Json.JsonConvert.DeserializeObject<Config>(System.IO.File.ReadAllText("Content/config.json"), settings);
-
-            m_random = new Random(m_config.RandomSeed);
+            
             for(int id = 0; id < m_entities.Count; id++) {
-                Entity updatedEntity = m_entities[id];
-                updatedEntity.ID = m_random.Next();
-                m_entities[id] = updatedEntity;
+                m_entities[id] = new Entity(m_random.Next(), m_entities[id].Name, m_entities[id].Components);
             }
         }
 
@@ -65,9 +65,9 @@ namespace Stomper.Scripts {
              */
             base.Initialize();
 
-            // TODO: Put into config.json
+            // TODO: Put into config.json?
             // These run in order!!
-            m_systems = new List<IECSSystem> {
+            m_systems = new IECSSystem[] {
                 // Physics first
                 new Gravity(),
                 new CollisionDetection(),
@@ -79,8 +79,11 @@ namespace Stomper.Scripts {
                 new PlayerSpawner(),
                 new Jump(),
                 new Walk(),
-                new DebugBoxColliderUpdatePosition(),
+                //new DebugBoxColliderUpdatePosition(),
                 new SpriteLoader(),
+                new StartStomp(),
+                new Stomp(),
+                new StopStomp(),
 
                 // Render last
                 new SpriteRenderer(),
@@ -88,22 +91,25 @@ namespace Stomper.Scripts {
                 new SpriteCustomSizeRenderer(),
 
                 // Debug rendering
-                new ColouredLineRenderer(),
+                //new ColouredLineRenderer(),
             };
 
-            
-            foreach(IECSSystem physicsSystem in m_systems.FindAll(s => s.Type == SystemType.PHYSICS)) {
+            // Sort systems into categories (no need to do it each frame)
+            m_physicsSystems    = Array.FindAll(m_systems, s => s.Type == SystemType.PHYSICS);
+            m_logicSystems      = Array.FindAll(m_systems, s => s.Type == SystemType.LOGIC);
+            m_renderingSystems  = Array.FindAll(m_systems, s => s.Type == SystemType.RENDERING);
+
+            foreach(IECSSystem physicsSystem in m_physicsSystems) {
                 physicsSystem.Initialize(this, m_config);
             }
 
-            foreach(IECSSystem logicSystem in m_systems.FindAll(s => s.Type == SystemType.LOGIC)) {
+            foreach(IECSSystem logicSystem in m_logicSystems) {
                 logicSystem.Initialize(this, m_config);
             }
 
-            foreach(IECSSystem renderingSystem in m_systems.FindAll(s => s.Type == SystemType.RENDERING)) {
+            foreach(IECSSystem renderingSystem in m_renderingSystems) {
                 renderingSystem.Initialize(this, m_config);
             }
-            
         }
 
         protected override void UnloadContent() {
@@ -114,10 +120,6 @@ namespace Stomper.Scripts {
                 system.Dispose();
             }
 
-            m_entities = m_entities
-                .Select(e => default(Entity))
-                .ToList();
-
             m_entities.Clear();
             m_config = default;
         }
@@ -127,10 +129,10 @@ namespace Stomper.Scripts {
             List<IGameEvent> gameEvents = new List<IGameEvent>();
             gameEvents.Add(new DeltaTimeEvent { gameTime = gameTime });
 
-            foreach(IECSSystem system in m_systems.FindAll(s => s.Type == SystemType.PHYSICS)) {
-                List<Entity> filteredEntities = m_entities.FindAll(e => system.RequiredComponents.All(rqt => e.Components.Any(c => c.GetType() == rqt)));
+            foreach(IECSSystem system in m_physicsSystems) {
+                List<Entity> filteredEntities = m_entities.FindAll(e => system.Archetype.All(rqt => e.Components.Any(c => c.GetType() == rqt)));
                 filteredEntities = filteredEntities.FindAll(e => !system.Exclusions.Any(rqt => e.Components.Any(c => c.GetType() == rqt)));
-                (List<Entity>, List<IGameEvent>) updatedEntities = system.Execute(filteredEntities, gameEvents);
+                (Entity[], IGameEvent[]) updatedEntities = system.Execute(filteredEntities.ToArray(), gameEvents.ToArray());
 
                 foreach(Entity updatedEntity in updatedEntities.Item1) {
                     int index = m_entities.FindIndex(e => e.ID == updatedEntity.ID);
@@ -143,10 +145,10 @@ namespace Stomper.Scripts {
                 gameEvents.AddRange(updatedEntities.Item2);
             }
 
-            foreach(IECSSystem system in m_systems.FindAll(s => s.Type == SystemType.LOGIC)) {
-                List<Entity> filteredEntities = m_entities.FindAll(e => system.RequiredComponents.All(rqt => e.Components.Any(c => c.GetType() == rqt)));
+            foreach(IECSSystem system in m_logicSystems) {
+                List<Entity> filteredEntities = m_entities.FindAll(e => system.Archetype.All(rqt => e.Components.Any(c => c.GetType() == rqt)));
                 filteredEntities = filteredEntities.FindAll(e => !system.Exclusions.Any(rqt => e.Components.Any(c => c.GetType() == rqt)));
-                (List<Entity>, List<IGameEvent>) updatedEntities = system.Execute(filteredEntities, gameEvents);
+                (Entity[], IGameEvent[]) updatedEntities = system.Execute(filteredEntities.ToArray(), gameEvents.ToArray());
 
                 foreach(Entity updatedEntity in updatedEntities.Item1) {
                     int index = m_entities.FindIndex(e => e.ID == updatedEntity.ID);
@@ -168,10 +170,10 @@ namespace Stomper.Scripts {
             gameEvents.Add(new DeltaTimeEvent { gameTime = gameTime });
             GraphicsDevice.Clear(m_config.DefaultClearColour);
 
-            foreach(IECSSystem system in m_systems.FindAll(s => s.Type == SystemType.RENDERING)) {
-                List<Entity> filteredEntities = m_entities.FindAll(e => system.RequiredComponents.All(rqt => e.Components.Any(c => c.GetType() == rqt)));
+            foreach(IECSSystem system in m_renderingSystems) {
+                List<Entity> filteredEntities = m_entities.FindAll(e => system.Archetype.All(rqt => e.Components.Any(c => c.GetType() == rqt)));
                 filteredEntities = filteredEntities.FindAll(e => !system.Exclusions.Any(rqt => e.Components.Any(c => c.GetType() == rqt)));
-                system.Execute(filteredEntities, gameEvents);
+                system.Execute(filteredEntities.ToArray(), gameEvents.ToArray());
             }
 
             base.Draw(gameTime);

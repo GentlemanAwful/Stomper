@@ -6,46 +6,48 @@ using Microsoft.Xna.Framework;
 
 using Stomper.Scripts;
 
-namespace Stomper.Engine.Physics
-{
-    public class ResolveStaticCollision : IECSSystem
-    {
+namespace Stomper.Engine.Physics {
+    public class ResolveStaticCollision : IECSSystem {
 		public SystemType Type => SystemType.PHYSICS;
-        public Type[] RequiredComponents => new Type[] { typeof(Position), typeof(BoxCollider) };
+        public Type[] Archetype => new Type[] { typeof(Position), typeof(HitboxSquare), typeof(Collider) };
         public Type[] Exclusions => new Type[0];
 
-        public void Initialize(FNAGame game, Config config)
-        {
+        public void Initialize(FNAGame game, Config config) {
 
         }
 
-        public void Dispose()
-        {
+        public void Dispose() {
 
         }
 
-        public (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents)
-        {
+        public (Entity[], IGameEvent[]) Execute(Entity[] entities, IGameEvent[] gameEvents) {
             List<Entity> updatedEntities = new List<Entity>();
 
-            foreach (CollisionDetection.CollisionDetected collisionEvent in gameEvents.FindAll(ge => ge is CollisionDetection.CollisionDetected && ((CollisionDetection.CollisionDetected)ge).staticCollision))
-            {
-                // Getters
-                Entity staticEntity = entities.Find(e => 
-                    e.HasComponents(new List<Type> { typeof(Static) })
-                    && new List<int> { collisionEvent.entity0, collisionEvent.entity1 }.Contains(e.ID)
-                );
+            var relevantCollisionEvents = gameEvents
+                .Where(ge => ge is CollisionDetection.CollisionDetected)
+                .Select(ge => (CollisionDetection.CollisionDetected)ge)
+                .Where(cd => cd.staticCollision);
 
-                Entity dynamicEntity = entities.Find(e =>
-                    e.HasComponents(new List<Type> { typeof(Mass) })
-                    && new List<int> { collisionEvent.entity0, collisionEvent.entity1 }.Contains(e.ID)
-                );
+            foreach (CollisionDetection.CollisionDetected collisionEvent in relevantCollisionEvents) {
+                // Getters
+                var staticEntities = entities
+                    .Where(e => e.HasComponents(new List<Type> { typeof(Static), typeof(Collider) }))
+                    .Where(e => new List<int> { collisionEvent.entity0, collisionEvent.entity1 }.Contains(e.ID));
+
+                var dynamicEntities = entities
+                    .Where(e => e.HasComponents(new List<Type> { typeof(Mass), typeof(Collider) }))
+                    .Where(e => new List<int> { collisionEvent.entity0, collisionEvent.entity1 }.Contains(e.ID));
+
+                if (staticEntities.Count() < 1 || dynamicEntities.Count() < 1) continue;
+
+                Entity staticEntity     = staticEntities.First();
+                Entity dynamicEntity    = dynamicEntities.First();
 
                 Position staticPosition = staticEntity.GetComponent<Position>();
                 Position dynamicPosition = dynamicEntity.GetComponent<Position>();
 
-                BoxCollider staticCollider = staticEntity.GetComponent<BoxCollider>();
-                BoxCollider dynamicCollider = dynamicEntity.GetComponent<BoxCollider>();
+                HitboxSquare staticCollider = staticEntity.GetComponent<HitboxSquare>();
+                HitboxSquare dynamicCollider = dynamicEntity.GetComponent<HitboxSquare>();
 
                 Mass dynamicMass = dynamicEntity.GetComponent<Mass>();
 
@@ -68,7 +70,7 @@ namespace Stomper.Engine.Physics
                 updatedEntities.Add(dynamicEntity);
             }
 
-            return (updatedEntities, new List<IGameEvent>());
+            return (updatedEntities.ToArray(), new IGameEvent[0]);
         }
     }
 }

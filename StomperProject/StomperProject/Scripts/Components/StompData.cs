@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Stomper.Engine;
+
+using System;
 using System.Collections.Generic;
-
-using Microsoft.Xna.Framework.Input;
-
-using Stomper.Engine;
+using System.Linq;
 
 namespace Stomper.Scripts.Components {
-    public struct InputData : IECSComponent {
+    public struct StompData : IECSComponent {
         private int m_entityID;
         public int entityID {
             get {
@@ -17,7 +16,9 @@ namespace Stomper.Scripts.Components {
             }
         }
 
-        //public Keys[] pressedKeys;
-        public List<Input.InputEvent> inputs;
+        // public bool active { get; }
+
+        public bool stomping;
+        public float stompVelocity;
     }
 }

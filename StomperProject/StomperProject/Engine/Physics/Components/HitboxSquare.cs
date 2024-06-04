@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Stomper.Engine.Physics
 {
-    public struct BoxCollider : IECSComponent
+    public struct HitboxSquare : IECSComponent
     {
 		public int m_entityID;
 		public int entityID {
@@ -18,9 +18,9 @@ namespace Stomper.Engine.Physics
         public Vector2 Offset;
         public Vector2 Size;
 
-        public static BoxCollider Create( Vector2 origin, Vector2 size )
+        public static HitboxSquare Create( Vector2 origin, Vector2 size )
         {
-            return new BoxCollider { Offset = origin, Size = size };
+            return new HitboxSquare { Offset = origin, Size = size };
         }
     }
 }

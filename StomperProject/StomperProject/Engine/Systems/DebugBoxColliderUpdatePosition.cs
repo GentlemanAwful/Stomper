@@ -11,25 +11,21 @@ namespace Stomper.Engine
     public class DebugBoxColliderUpdatePosition : IECSSystem
     {
 		public SystemType Type => SystemType.LOGIC;
-        public Type[] RequiredComponents { get; } = new Type[]
-        {
+        public Type[] Archetype { get; } = new Type[] {
             typeof(Position),
-            typeof(Physics.BoxCollider)
+            typeof(Physics.HitboxSquare)
         };
 
         public Type[] Exclusions => new Type[0];
 
-        public void Initialize(FNAGame game, Config config)
-        {
+        public void Initialize(FNAGame game, Config config) {
 
         }
-        public void Dispose()
-        {
+        public void Dispose() {
 
         }
 
-        public (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents)
-        {
+        public (Entity[], IGameEvent[]) Execute(Entity[] entities, IGameEvent[] gameEvents) {
             //if (entities == null)
             //    return;
 
@@ -37,7 +33,7 @@ namespace Stomper.Engine
             foreach(Entity entity in entities)
             {
                 Position position = entity.GetComponent<Position>();
-                Physics.BoxCollider boxCollider = entity.GetComponent<Physics.BoxCollider>();
+                Physics.HitboxSquare hitboxSquare = entity.GetComponent<Physics.HitboxSquare>();
 
                 // Remove old lines...
                 foreach(Renderer.ColouredLine existingLine in entity.GetComponents<Renderer.ColouredLine>())
@@ -51,9 +47,9 @@ namespace Stomper.Engine
                     colour = Color.LightGreen,
                     rect = new Rectangle
                     (
-                        (int)position.position.X + (int)boxCollider.Offset.X,
-                        (int)position.position.Y + (int)boxCollider.Offset.Y,
-                        (int)boxCollider.Size.X,
+                        (int)position.position.X + (int)hitboxSquare.Offset.X,
+                        (int)position.position.Y + (int)hitboxSquare.Offset.Y,
+                        (int)hitboxSquare.Size.X,
                         2
                     )
                 };
@@ -63,10 +59,10 @@ namespace Stomper.Engine
                     colour = Color.LightGreen,
                     rect = new Rectangle
                     (
-                        (int)position.position.X + (int)boxCollider.Offset.X + (int)boxCollider.Size.X,
-                        (int)position.position.Y + (int)boxCollider.Offset.Y,
+                        (int)position.position.X + (int)hitboxSquare.Offset.X + (int)hitboxSquare.Size.X,
+                        (int)position.position.Y + (int)hitboxSquare.Offset.Y,
                         2,
-                        (int)boxCollider.Size.Y
+                        (int)hitboxSquare.Size.Y
                     )
                 };
 
@@ -75,9 +71,9 @@ namespace Stomper.Engine
                     colour = Color.LightGreen,
                     rect = new Rectangle
                     (
-                        (int)position.position.X + (int)boxCollider.Offset.X,
-                        (int)position.position.Y + (int)boxCollider.Offset.Y + (int)boxCollider.Size.Y,
-                        (int)boxCollider.Size.X,
+                        (int)position.position.X + (int)hitboxSquare.Offset.X,
+                        (int)position.position.Y + (int)hitboxSquare.Offset.Y + (int)hitboxSquare.Size.Y,
+                        (int)hitboxSquare.Size.X,
                         2
                     )
                 };
@@ -87,10 +83,10 @@ namespace Stomper.Engine
                     colour = Color.LightGreen,
                     rect = new Rectangle
                     (
-                        (int)position.position.X + (int)boxCollider.Offset.X,
-                        (int)position.position.Y + (int)boxCollider.Offset.Y,
+                        (int)position.position.X + (int)hitboxSquare.Offset.X,
+                        (int)position.position.Y + (int)hitboxSquare.Offset.Y,
                         2,
-                        (int)boxCollider.Size.Y
+                        (int)hitboxSquare.Size.Y
                     )
                 };
 
@@ -99,7 +95,7 @@ namespace Stomper.Engine
                 entity.AddComponent(bottomLine);
                 entity.AddComponent(leftLine);
             }
-            return (entities, new List<IGameEvent>());
+            return (entities, new IGameEvent[0]);
         }
     }
 }

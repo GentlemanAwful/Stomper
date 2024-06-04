@@ -11,7 +11,7 @@ using Stomper.Scripts.Components;
 
 namespace Stomper.Scripts {
     public class Jump : IECSSystem {
-        public Type[] RequiredComponents { get; set; } = new Type[] { typeof(Mass), typeof(JumpAcceleration), typeof(InputData) };
+        public Type[] Archetype { get; set; } = new Type[] { typeof(Mass), typeof(JumpAcceleration), typeof(InputData) };
 
         public SystemType Type => SystemType.LOGIC;
 
@@ -19,15 +19,14 @@ namespace Stomper.Scripts {
 
         // Specs
         private const float THETA = 0.01f;
-
         
         public void Initialize(FNAGame game, Config config) {
         }
 
         public void Dispose() {
         }
-        
-        public (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents) {
+
+        public (Entity[], IGameEvent[]) Execute(Entity[] entities, IGameEvent[] gameEvents) {
             IEnumerable<(int ID, Mass mass, JumpAcceleration jumpAcceleration)> results = entities
                 .Where(e => e.GetComponent<InputData>().inputs != null && e.GetComponent<InputData>().inputs.Exists(ie => ie.action == Input.Action.JUMP)) // TODO fix null inputs list
                 .Select(e => (e.ID, e.GetComponent<Mass>(), e.GetComponent<JumpAcceleration>()))
@@ -38,10 +37,11 @@ namespace Stomper.Scripts {
                 });
 
             foreach(var tuple in results) {
-                int index = entities.FindIndex(e => e.ID == tuple.ID);
+                //int index = entities.FindIndex(e => e.ID == tuple.ID);
+                int index = Array.FindIndex(entities, e => e.ID == tuple.ID);
                 entities[index].UpdateComponent(tuple.mass);
             }
-            return (entities, new List<IGameEvent>());
+            return (entities, new IGameEvent[0]);
         }
     }
 }

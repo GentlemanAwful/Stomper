@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Stomper.Engine;
+using System;
 using System.Collections.Generic;
-
-using Microsoft.Xna.Framework.Input;
-
-using Stomper.Engine;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Stomper.Scripts.Components {
-    public struct InputData : IECSComponent {
+    public struct StompBlocker : IECSComponent {
         private int m_entityID;
         public int entityID {
             get {
@@ -16,8 +16,5 @@ namespace Stomper.Scripts.Components {
                 m_entityID = value;
             }
         }
-
-        //public Keys[] pressedKeys;
-        public List<Input.InputEvent> inputs;
     }
 }

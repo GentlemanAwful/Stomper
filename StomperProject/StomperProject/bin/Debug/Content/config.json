@@ -48,9 +48,12 @@
           "Height": 50
         },
         {
-          "$type": "Stomper.Engine.Physics.BoxCollider, StomperProject",
+          "$type": "Stomper.Engine.Physics.HitboxSquare, StomperProject",
           "Offset": "0, 0",
           "Size": "50, 50"
+        },
+        {
+          "$type": "Stomper.Engine.Physics.Collider, StomperProject"
         },
         {
           "$type": "Stomper.Scripts.Components.WalkSpeed, StomperProject",

@@ -11,7 +11,7 @@ namespace Stomper.Scripts {
     class PlayerSpawner : IECSSystem {
         public SystemType Type => SystemType.LOGIC;
 
-        public Type[] RequiredComponents => new Type[] { typeof(SpawnDetails) };
+        public Type[] Archetype => new Type[] { typeof(SpawnDetails) };
 
         public Type[] Exclusions => new Type[0];
 
@@ -24,11 +24,19 @@ namespace Stomper.Scripts {
         public void Dispose() {
         }
 
-        public (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents) {
+        public (Entity[], IGameEvent[]) Execute(Entity[] entities, IGameEvent[] gameEvents) {
             IEnumerable<Entity> relevantSpawners = entities
                 .Where(e => e.GetComponent<InputData>().inputs != null)
                 .Where(e => e.GetComponent<InputData>().inputs.Exists(i => i.action == Input.Action.SPAWN))
                 .Where(e => e.GetComponent<InputData>().inputs.Exists(i => i.state == Input.InputState.PRESSED));
+
+            // Keeps spawning players on held button. For testing purposes only!
+            /*
+            IEnumerable<Entity> relevantSpawners = entities
+                .Where(e => e.GetComponent<InputData>().inputs != null)
+                .Where(e => e.GetComponent<InputData>().inputs.Exists(i => i.action == Input.Action.SPAWN))
+                .Where(e => e.GetComponent<InputData>().inputs.Exists(i => i.state == Input.InputState.HELD));
+            */
 
             IEnumerable<(Entity template, int index, Vector2 spawnPosition)> playertemplates = relevantSpawners
                 .Select(e => (
@@ -38,13 +46,13 @@ namespace Stomper.Scripts {
                 ));
 
             List<(Entity, Vector2)> newPlayers = playertemplates
-                .Select(sd => (new Entity {
-                    ID = random.Next(),
-                    Name = $"player{sd.index}",
-                    Components = sd.template.Components
+                .Select(sd => (new Entity(
+                    newID:      random.Next(),
+                    newName:    $"player{sd.index}",
+                    newComponents: sd.template.Components
                                     .Select(c => c)
                                     .ToList()
-                }, sd.spawnPosition)
+                ), sd.spawnPosition)
                 )
                 .ToList();
 
@@ -65,7 +73,7 @@ namespace Stomper.Scripts {
                 newPlayer.UpdateComponent(tag);
             }
 
-            return (newPlayers.Select(np => np.Item1).Concat(relevantSpawners).ToList(), new List<IGameEvent>());
+            return (newPlayers.Select(np => np.Item1).Concat(relevantSpawners).ToArray(), new IGameEvent[0]);
         }
     }
 }

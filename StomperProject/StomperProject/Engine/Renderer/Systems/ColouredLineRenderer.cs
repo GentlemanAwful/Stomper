@@ -11,7 +11,7 @@ namespace Stomper.Engine.Renderer
     public class ColouredLineRenderer : IECSSystem
     {
 		public SystemType Type => SystemType.RENDERING;
-        public Type[] RequiredComponents { get; } = new Type[]
+        public Type[] Archetype { get; } = new Type[]
         {
             typeof(ColouredLine)
         };
@@ -30,63 +30,8 @@ namespace Stomper.Engine.Renderer
             batch = new SpriteBatch(game.GraphicsDevice);
             LineTexture = new Texture2D(game.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
         }
-        /*
-		public void Execute(List<IECSComponent> components, List<IGameEvent> gameEvents)
-		{
-			batch.Begin(SpriteSortMode.FrontToBack, BlendState.Opaque, SamplerState.LinearWrap, DepthStencilState.Default, RasterizerState.CullNone);
 
-			foreach(int entityID in ECSSystemHelpers.GetUniqueIDs(components))
-			{
-				foreach (ColouredLine line in ECSSystemHelpers.GetComponentsFromEntity<ColouredLine>(entityID, components))
-				{
-					batch.Draw
-					(
-						LineTexture,
-						new Rectangle
-						(
-							line.rect.X,
-							line.rect.Y,
-							line.rect.Width,
-							line.rect.Height
-						),
-						line.colour
-					);
-				}
-			}
-
-			batch.End();
-		}
-        */
-        public void Execute(IEnumerable<IGrouping<int, IECSComponent>> entities, List<IGameEvent> gameEvents)
-        {
-            batch.Begin(SpriteSortMode.FrontToBack, BlendState.Opaque, SamplerState.LinearWrap, DepthStencilState.Default, RasterizerState.CullNone);
-            
-            foreach (var entityGroup in entities)
-            {
-                ExecuteSingle(entityGroup.ToList(), gameEvents);
-            }
-
-            batch.End();
-        }
-
-        public void ExecuteSingle(List<IECSComponent> components, List<IGameEvent> gameEvents)
-        {
-            ColouredLine line = (ColouredLine)components.First(c => c is ColouredLine);
-            batch.Draw(
-                LineTexture,
-                new Rectangle
-                (
-                    line.rect.X,
-                    line.rect.Y,
-                    line.rect.Width,
-                    line.rect.Height
-                ),
-                line.colour
-            );
-        }
-
-        public (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents)
-        {
+        public (Entity[], IGameEvent[]) Execute(Entity[] entities, IGameEvent[] gameEvents) {
             batch.Begin(SpriteSortMode.FrontToBack, BlendState.Opaque, SamplerState.LinearWrap, DepthStencilState.Default, RasterizerState.CullNone);
 
             foreach (Entity entity in entities)
@@ -107,7 +52,7 @@ namespace Stomper.Engine.Renderer
             }
 
             batch.End();
-            return (new List<Entity>(), new List<IGameEvent>());
+            return (new Entity[0], new IGameEvent[0]);
         }
     }
 }

@@ -3,32 +3,23 @@ using System.Collections.Generic;
 
 namespace Stomper.Engine {
     public struct Entity {
-        public int ID;
+        // These can't be readonly because they are auto converted from json
+        public int                  ID;
         public string               Name;
         public List<IECSComponent>  Components;
 
-        public void Init() {
-            ID          = -1;
-            Name        = "undefined";
-            Components  = new List<IECSComponent>();
-        }
-
-        public static void Clear(Entity entity) {
-            entity.ID = -1;
-            entity.Name = "undefined";
-            foreach(IECSComponent component in entity.Components) {
-                component.entityID = -1;
-            }
-            entity.Components.Clear();
+        public Entity(int newID, string newName, List<IECSComponent> newComponents) {
+            ID = newID;
+            Name = newName;
+            Components = newComponents;
         }
 
         public void AddComponent(IECSComponent component) {
             Components.Add(component);
         }
 
-        public void RemoveComponent(IECSComponent component) // TODO Change this
-        {
-            Components.Remove(component);
+        public void RemoveComponent(IECSComponent component) {
+            bool success = Components.Remove(component);
         }
 
         public void UpdateComponent<T>(T updatedComponent) where T : IECSComponent {
@@ -44,12 +35,6 @@ namespace Stomper.Engine {
             }
             return true;
         }
-        /*
-        public Dictionary<Type, IECSComponent> GetRequiredComponents()
-        {
-            return (T)Components.Find((c) => c.GetType() == typeof(T));
-        }
-        */
         public T GetComponent<T>() where T : IECSComponent {
             return (T)Components.Find((c) => c.GetType() == typeof(T));
         }

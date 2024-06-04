@@ -8,7 +8,7 @@ using Stomper.Scripts.Components;
 namespace Stomper.Scripts {
     public class Walk : IECSSystem {
         public SystemType Type => SystemType.LOGIC;
-        public Type[] RequiredComponents { get; set; } = new Type[] { typeof(Position), typeof(WalkSpeed), typeof(InputData) };
+        public Type[] Archetype { get; set; } = new Type[] { typeof(Position), typeof(WalkSpeed), typeof(InputData) };
         public Type[] Exclusions => new Type[0];
 
         public void Initialize(FNAGame game, Config config) {
@@ -19,8 +19,8 @@ namespace Stomper.Scripts {
 
         }
 
-        public (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents) {
-            float deltaTime = ((FNAGame.DeltaTimeEvent)gameEvents.Find(ge => ge is FNAGame.DeltaTimeEvent)).gameTime.ElapsedGameTime.Milliseconds;
+        public (Entity[], IGameEvent[]) Execute(Entity[] entities, IGameEvent[] gameEvents) {
+            float deltaTime = ((FNAGame.DeltaTimeEvent)gameEvents.First(ge => ge is FNAGame.DeltaTimeEvent)).gameTime.ElapsedGameTime.Milliseconds;
 
             IEnumerable<(int ID, Position position, WalkSpeed walkSpeed, int sign)> results = entities
                 .Where(e => e.GetComponent<InputData>().inputs != null && e.GetComponent<InputData>().inputs.Exists(i => i.action == Input.Action.MOVE_LEFT || i.action == Input.Action.MOVE_RIGHT))
@@ -31,11 +31,12 @@ namespace Stomper.Scripts {
                 });
 
             foreach(var tuple in results) {
-                int index = entities.FindIndex(e => e.ID == tuple.ID);
+                //int index = entities.FindIndex(e => e.ID == tuple.ID);
+                int index = Array.FindIndex(entities, e => e.ID == tuple.ID);
                 entities[index].UpdateComponent(tuple.position);
             }
 
-            return (entities, new List<IGameEvent>());
+            return (entities, new IGameEvent[0]);
         }
     }
 }

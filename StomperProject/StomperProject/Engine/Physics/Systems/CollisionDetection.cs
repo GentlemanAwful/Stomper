@@ -8,7 +8,7 @@ namespace Stomper.Engine.Physics
     public class CollisionDetection : IECSSystem
     {
 		public SystemType Type => SystemType.PHYSICS;
-        public Type[] RequiredComponents { get; } = new Type[] { typeof(Position), typeof(BoxCollider) };
+        public Type[] Archetype { get; } = new Type[] { typeof(Position), typeof(HitboxSquare) };
         public Type[] Exclusions => new Type[0];
 
         public struct CollisionDetected : IGameEvent
@@ -31,10 +31,10 @@ namespace Stomper.Engine.Physics
 		public static bool CheckCollision(int entityID0, int entityID1, List<IECSComponent> components)
 		{
 			Position position0 			= ECSSystemHelpers.GetComponentFromEntity<Position>(entityID0, components);
-			BoxCollider boxCollider0 	= ECSSystemHelpers.GetComponentFromEntity<BoxCollider>(entityID0, components);
+            HitboxSquare boxCollider0 	= ECSSystemHelpers.GetComponentFromEntity<HitboxSquare>(entityID0, components);
 
 			Position position1 			= ECSSystemHelpers.GetComponentFromEntity<Position>(entityID1, components);
-			BoxCollider boxCollider1 	= ECSSystemHelpers.GetComponentFromEntity<BoxCollider>(entityID1, components);
+            HitboxSquare boxCollider1 	= ECSSystemHelpers.GetComponentFromEntity<HitboxSquare>(entityID1, components);
 
 			// Horizontal
 			bool horizontalDetection = (position0.position.X + boxCollider0.Offset.X) < (position1.position.X + boxCollider1.Offset.X) // check that box 1 isn't simply to the right of box 2
@@ -47,7 +47,7 @@ namespace Stomper.Engine.Physics
 			return horizontalDetection && verticalDetection;
 		}
 
-        public (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents)
+        public (Entity[], IGameEvent[]) Execute(Entity[] entities, IGameEvent[] gameEvents)
         {
             List<IGameEvent> collisionEvents = new List<IGameEvent>();
 
@@ -58,10 +58,10 @@ namespace Stomper.Engine.Physics
                     if (entity0.ID == entity1.ID) continue;
 
                     Position position0 = entity0.GetComponent<Position>();
-                    BoxCollider boxCollider0 = entity0.GetComponent<BoxCollider>();
+                    HitboxSquare boxCollider0 = entity0.GetComponent<HitboxSquare>();
 
                     Position position1 = entity1.GetComponent<Position>();
-                    BoxCollider boxCollider1 = entity1.GetComponent<BoxCollider>();
+                    HitboxSquare boxCollider1 = entity1.GetComponent<HitboxSquare>();
 
                     bool horizontalDetection =
                         (position0.position.X + boxCollider0.Offset.X) < (position1.position.X + boxCollider1.Offset.X) // check that box 1 isn't simply to the right of box 2
@@ -73,7 +73,7 @@ namespace Stomper.Engine.Physics
 
                     if (horizontalDetection && verticalDetection)
                     {
-                        gameEvents.Add(new CollisionDetected{
+                        collisionEvents.Add(new CollisionDetected{
                             entity0 = entity0.ID,
                             entity1 = entity1.ID,
                             staticCollision = entity0.HasComponent<Static>() || entity1.HasComponent<Static>()
@@ -82,7 +82,7 @@ namespace Stomper.Engine.Physics
                 }
             }
 
-            return (new List<Entity>(), collisionEvents);
+            return (new Entity[0], collisionEvents.ToArray());
         }
     }
 }

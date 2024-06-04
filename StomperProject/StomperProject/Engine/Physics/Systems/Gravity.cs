@@ -12,7 +12,7 @@ namespace Stomper.Engine.Physics
     public class Gravity : IECSSystem
     {
         public SystemType Type => SystemType.PHYSICS;
-        public Type[] RequiredComponents { get; set; } = new Type[] { typeof(Position), typeof(Mass) };
+        public Type[] Archetype { get; set; } = new Type[] { typeof(Position), typeof(Mass) };
 
         public Type[] Exclusions => new Type[0];
 
@@ -27,11 +27,11 @@ namespace Stomper.Engine.Physics
         {
 
         }
-        public (List<Entity>, List<IGameEvent>) Execute(List<Entity> entities, List<IGameEvent> gameEvents)
+        public (Entity[], IGameEvent[]) Execute(Entity[] entities, IGameEvent[] gameEvents)
         {
             foreach (var entity in entities)
             {
-                double deltaTime = ((FNAGame.DeltaTimeEvent)gameEvents.Find(ge => ge is FNAGame.DeltaTimeEvent)).gameTime.ElapsedGameTime.TotalSeconds;
+                double deltaTime = ((FNAGame.DeltaTimeEvent)gameEvents.First(ge => ge is FNAGame.DeltaTimeEvent)).gameTime.ElapsedGameTime.TotalSeconds;
 
                 Position position = entity.GetComponent<Position>();
                 Mass mass = entity.GetComponent<Mass>();
@@ -43,7 +43,7 @@ namespace Stomper.Engine.Physics
                 entity.UpdateComponent(mass);
             }
 
-            return (entities, new List<IGameEvent>());
+            return (entities, new IGameEvent[0]);
         }
     }
 }
